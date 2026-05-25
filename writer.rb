@@ -1,0 +1,5 @@
+f = File.open "test.txt","w"
+
+f.puts "Hello, File I/O"
+
+f.close

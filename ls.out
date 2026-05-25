@@ -1,0 +1,15 @@
+total 48
+-rw-r--r-- 1 root root 967 May 25 03:05 Main.java
+-rw-r--r-- 1 root root 383 May 22 09:38 abc.rb
+-rw-r--r-- 1 root root 889 May 18 03:10 arraytest.rb
+-rwxr-xr-x 1 root root 257 May 25 02:27 hello.rb
+-rw-r--r-- 1 root root   0 May 25 03:17 ls.out
+-rw-r--r-- 1 root root 176 May 18 03:18 method.rb
+-rwxr-xr-x 1 root root 119 May 25 03:14 rcat
+-rw-r--r-- 1 root root 356 May 25 02:43 reader.rb
+-rw-r--r-- 1 root root 191 May 25 03:06 reader2.rb
+-rw-r--r-- 1 root root  16 May 25 02:49 test.txt
+-rw-r--r-- 1 root root  21 May 25 02:52 test2.txt
+-rw-r--r-- 1 root root  64 May 25 02:50 writer.rb
+-rw-r--r-- 1 root root 148 May 25 02:58 writer2.rb
+-rw-r--r-- 1 root root   0 Apr 27 03:11 xyz.rb
