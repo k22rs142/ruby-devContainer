@@ -8,6 +8,7 @@ if score >= 90
   puts x
 elsif score >= 80
   x = "SCORE:A #{score}"
+  #"SCORE:"+score.to_s()
 elsif score >= 70
   x = "SCORE:B #{score}"
 end
@@ -22,7 +23,8 @@ end
 puts
 
 #繰り返し(for)
-5.times do [i]
+5.times do |i|
   print "#{i}*"
 end
 puts
+
