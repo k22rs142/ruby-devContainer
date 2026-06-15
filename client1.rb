@@ -16,6 +16,26 @@ sock.puts cmd
 # line = sock.gets
 # puts line
 
+# while line = sock.gets
+#   puts line
+# end
+
+# flg = 0
+# while line = sock.gets
+#   # pp line
+#   if line. == "<!DOCTYPE html>\n"
+#       flg = 1
+#   end
+
+#   if flg == 1
+#     puts line
+#   end
+# end
+# 
+flg = false
 while line = sock.gets
-  puts line
+  # pp line #debug用★
+  puts line if flg
+  flg = true if line == "\r\n"
 end
+
