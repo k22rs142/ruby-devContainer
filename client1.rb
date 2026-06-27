@@ -10,14 +10,13 @@ pp 'GET ' + path
 
 #cmd = 'GET '+path+' HTTP/1.0' + "\r\n\r\n" #http1.0
 
-cmd = 'GET '+path+' HTTP/1.1' + "\r\n" #http1.1
-cmd2 = 'Host: ' + host + "\r\n" #http1.1
-cmd_end = "\r\n" #http1.1
+cmd = "GET #{path} HTTP/1.1\r\n" #http1.1
+cmd += "Host: #{host}\r\n" #http1.1
+cmd += "Connection: close\r\n"
+cmd += "\r\n" #http1.1
 
 pp cmd
 sock.puts cmd
-sock.puts cmd2
-sock.puts cmd_end
 #sock.puts x
 
 # sock.puts "\r\n"
