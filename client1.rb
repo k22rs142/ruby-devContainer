@@ -1,9 +1,15 @@
+#! /usr/local/bin/ruby
 #client1.rb
 require 'socket'
 
-host='www.is.kyusan-u.ac.jp'
+#host='www.is.kyusan-u.ac.jp'
+host=ARGV[0]
 port='http'
-path = '/~toshi/'
+#path = '/~toshi/'
+path = ARGV[1]
+if path == nil
+  path = "/"
+end
 
 sock = TCPSocket.new host, port
 pp 'GET ' + path
