@@ -15,6 +15,8 @@ gs = TCPServer.new('http') #グローバルサーバー?
 while true
   pp "start accept"
   s = gs.accept
-  server s
-  sleep 10
+  Thread.new do #新しいスレッド処理を行う(並列処理?)
+    server s
+    sleep 10
+  end
 end
