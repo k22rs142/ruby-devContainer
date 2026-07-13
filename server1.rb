@@ -17,14 +17,20 @@ def server s
     pp 'INDEX'
     s.puts "<h1>index</h1>"
   else
-    pp "OTHER"
-    s.puts '<h1>other</h1>'
+    # pp "OTHER"
+    # s.puts '<h1>other</h1>'
+    filename = path.slice(1..-1)
+    #filename = path.gsub("/","")
+    #filename = path.delete_prefix("/")
+    pp filename
+    f = File.open(filename, "r")
+  while line = f.gets 
+    s.puts line
+  end
+  #f.close
   end
           
   
-   
-
-
   # while line=s.gets
   #   pp line
   #   s.puts line
