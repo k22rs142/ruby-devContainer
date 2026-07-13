@@ -16,26 +16,36 @@ def server s
     s.print "\r\n"  
     pp 'INDEX'
     s.puts "<h1>index</h1>"
+  elsif path == "/api/now"
+    s.print "HTTP/1.0 200 OK\r\n"  
+    s.print "Content-Type: application/json\r\n"  
+    s.print "\r\n"  
+    s.puts"{"
+    s.puts'"time": "' + "#{Time.now}" + '"'
+    s.puts"}"
+
   else
-    # pp "OTHER"
-    # s.puts '<h1>other</h1>'
     filename = path.slice(1..-1)
+    if File.exist?(filename)
     #filename = path.gsub("/","")
     #filename = path.delete_prefix("/")
-    pp filename
-    f = File.open(filename, "r")
-  while line = f.gets 
-    s.puts line
+      pp filename
+      s.print "HTTP/1.0 200 OK\r\n"  
+      s.print "Content-Type: text/plain; charset=UTF-8\r\n"  
+      s.print "\r\n"
+      f = File.open(filename, "r")
+      while line = f.gets 
+        s.puts line
+      end
+      f.close
+    else
+      s.print "HTTP/1.0 404 Not Found\r\n"  
+      s.print "Content-Type: text/html\r\n"  
+      s.print "\r\n"
+      s.print "<h1>404 file #{filename} not found</h1>"  
+      s.print "<p>File Not Found</p>" 
+    end
   end
-  #f.close
-  end
-          
-  
-  # while line=s.gets
-  #   pp line
-  #   s.puts line
-  #   break if line == "\r\n"
-  # end
    s.close
 end
 
