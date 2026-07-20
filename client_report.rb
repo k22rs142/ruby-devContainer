@@ -15,7 +15,7 @@ elsif path == "/send"
   path = "/send"
   puts "投稿内容を入力してください"
   message = STDIN.gets
-  sock.puts "#{path} #{name}:#{message}"
+  sock.puts "#{path} #{name} #{message}"
   pp "#{path} #{name} #{message}"
 
   puts sock.gets
