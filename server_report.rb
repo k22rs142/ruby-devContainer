@@ -2,16 +2,17 @@
 require 'socket'
 
 def server s
-  path, message = s.gets.split(" ", 2)
+  path, name, message = s.gets.split(" ", 3)
   
 
   puts "path:#{path}"
+  puts "name:#{name}"
   puts "message:#{message}"
   
   if path == "/send"
     puts "SEND"
     f = File.open "message_list.txt","a"
-    f.puts "[#{Time.now.getlocal("+09:00")}]#{message}"
+    f.puts "[#{Time.now.getlocal("+09:00")}]#{name}: #{message}"
     f.close
     s.puts "投稿完了"
   elsif path == "/list"
