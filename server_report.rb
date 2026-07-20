@@ -11,7 +11,7 @@ def server s
   if path == "/send"
     puts "SEND"
     f = File.open "message_list.txt","a"
-    f.puts message
+    f.puts "[#{Time.now.getlocal("+09:00")}]#{message}"
     f.close
     s.puts "投稿完了"
   elsif path == "/list"
