@@ -2,29 +2,30 @@
 require 'socket'
 
 def server s
-  #HTTP/1.0 として正しく返答
-  #1行目 HTTP/1.0 200 OK
-  #2行目 Content-Type text/html
-  #3行目 空行
-  #4行目 コンテンツ
-  #最後 ソケットをクローズ
-  #cmd, path, ver = s.gets.split(" ")
-  #pp s.gets
-  message = s.gets
-  path = s.gets
+  path, message = s.gets.split(" ", 2)
+  
 
-  puts "message:#{message}"
   puts "path:#{path}"
-
-  puts "SEND"
-    #pp s.gets
-    #message = s.gets
-  f = File.open "message_list.txt","a"
-  f.puts message
-  f.close
-   s.close
+  puts "message:#{message}"
+  
+  if path == "/send"
+    puts "SEND"
+    f = File.open "message_list.txt","a"
+    f.puts message
+    f.close
+    s.puts "投稿完了"
+  elsif path == "/list"
+    puts "LIST"
+    if File.exist?("message_list.txt")
+      f = File.open("message_list.txt", "r")
+      while line = f.gets
+        s.puts line
+      end
+      f.close
+    end
+    s.close
+  end
 end
-
 #総合窓口
 gs = TCPServer.new('http') #グローバルサーバー?
 while true
